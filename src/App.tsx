@@ -1,6 +1,8 @@
 import { useEffect, useState, type ElementType } from 'react';
 import {
   ArrowDown,
+  ArrowLeft,
+  ArrowUp,
   ArrowUpRight,
   BriefcaseBusiness,
   Check,
@@ -13,7 +15,7 @@ import {
   Trophy,
   X,
 } from 'lucide-react';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaFacebookF, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 type IconComponent = ElementType<{ size?: number | string; className?: string }>;
 
@@ -140,7 +142,7 @@ const projects: Project[] = [
       'A website for Cambodia’s first mountain wellness sanctuary.',
     contribution:
       'Built responsive, consistent pages across the resort experience.',
-    stack: ['HTML', 'CSS', 'JavaScript', 'Responsive UI'],
+    stack: ['Webflow', 'Responsive UI', 'Hospitality Website', 'Visual Design'],
     caseStudy: {
       problem:
         'The resort needed a calm hospitality website that could introduce the place, services, and atmosphere across devices.',
@@ -214,8 +216,8 @@ const projects: Project[] = [
 ];
 
 const otherWork = [
-  ['Invoxia', 'Product interface concept', 'Figma · UX/UI'],
-  ['Komi', 'Web interface design', 'Responsive UI · Frontend'],
+  ['Invoxia', 'AI invoice extraction for expense tracking', 'Invoice dataset · OCR · Data extraction'],
+  ['Komi', 'Korean-style online shop in Cambodia', 'E-commerce UI · Responsive frontend'],
 ];
 
 const experiences = [
@@ -275,12 +277,148 @@ const contacts = [
   { icon: Mail, label: 'Email', href: 'mailto:somavateysorn@gmail.com' },
   { icon: FaGithub, label: 'GitHub', href: 'https://github.com/sornsomavatey' },
   { icon: FaLinkedin, label: 'LinkedIn', href: 'https://linkedin.com/' },
+  { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/__jjein__/' },
+  { icon: FaFacebookF, label: 'Facebook', href: 'https://www.facebook.com/Vatxyyy/' },
 ];
+
+const footerContactLinks = [
+  { label: 'somavateysorn@gmail.com', href: 'mailto:somavateysorn@gmail.com' },
+  { label: '+855 70 358 567', href: 'tel:+85570358567' },
+];
+
+const aboutGallery = [
+  {
+    src: '/assets/profile.jpg',
+    alt: 'Somavatey Sorn portrait',
+    caption: 'Phnom Penh, Cambodia',
+  },
+  {
+    src: '/assets/huawei-journey/photo_2_2026-06-29_10-42-17.jpg',
+    alt: 'Somavatey at the ASEAN headquarters in Jakarta',
+    caption: 'Jakarta, Indonesia',
+  },
+  {
+    src: '/assets/huawei-journey/photo_1_2026-06-29_10-42-17.jpg',
+    alt: 'Somavatey at ASEAN headquarters with ASEAN flags',
+    caption: 'ASEAN Headquarters',
+  },
+  {
+    src: '/assets/huawei-journey/photo_5_2026-06-29_10-42-17.jpg',
+    alt: 'Cambodian delegation at the Huawei ICT Competition APAC Regional Final',
+    caption: 'Huawei ICT Regional Final',
+  },
+  {
+    src: '/assets/airport.png',
+    alt: 'Somavatey at the airport before a trip',
+    caption: 'Travel day',
+  },
+  {
+    src: '/assets/campus-selfie.png',
+    alt: 'Somavatey on campus',
+    caption: 'Campus moment',
+  },
+  {
+    src: '/assets/aupp.png',
+    alt: 'Somavatey at the American University of Phnom Penh',
+    caption: 'AUPP campus',
+  },
+  {
+    src: '/assets/beach.png',
+    alt: 'Somavatey by the sea',
+    caption: 'By the sea',
+  },
+  {
+    src: '/assets/aeroplant/team1.jpg',
+    alt: 'AeroPlant team at Turing Hackathon Demo Day',
+    caption: 'Turing Hackathon Demo Day',
+  },
+];
+
+function AboutPage() {
+  return (
+    <main className="about-page">
+      <section className="page-width about-page-hero">
+        <a href="/" className="text-link about-back-link">
+          <ArrowLeft size={15} /> Back to portfolio
+        </a>
+        <p className="section-label">About Somavatey</p>
+        <h1 className="about-page-title font-editorial">
+          I learn by building useful things across cloud, web and connected systems.
+        </h1>
+        <p className="about-page-lead">
+          I&apos;m a Digital Infrastructure student at the American University of Phnom Penh. My work sits between technical systems and human experience: websites that feel clear, IoT projects that solve practical problems, and cloud learning that keeps me curious.
+        </p>
+      </section>
+
+      <section className="page-width about-gallery-section" aria-label="Photos from Somavatey's journey">
+        <div className="about-gallery-heading">
+          <p className="section-label">Gallery</p>
+          <h2 className="font-editorial">Moments behind the work.</h2>
+        </div>
+        <div className="about-gallery">
+          {aboutGallery.map((image, index) => (
+            <figure
+              className={`about-photo ${index === 0 ? 'about-photo--feature' : ''}`}
+              key={image.src}
+            >
+              <img src={image.src} alt={image.alt} loading={index === 0 ? 'eager' : 'lazy'} />
+              <figcaption>{image.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section className="page-width about-story-grid">
+        <div>
+          <p className="section-label">How I work</p>
+          <h2 className="font-editorial">Practical first, polished second.</h2>
+        </div>
+        <div className="about-story-copy">
+          <p>
+            I like projects where an idea has to become something people can actually use. That might mean turning Figma designs into responsive pages, connecting ESP32 hardware to useful alerts, or shaping a product flow before writing code.
+          </p>
+          <p>
+            My strongest motivation is clarity: making technology easier to understand, easier to navigate, and more connected to real needs.
+          </p>
+        </div>
+      </section>
+
+      <section className="page-width about-focus-grid">
+        {strengths.map(({ icon: Icon, title, text }) => (
+          <article key={title} className="about-focus-card">
+            <Icon size={22} className="text-rust" />
+            <h3>{title}</h3>
+            <p>{text}</p>
+          </article>
+        ))}
+      </section>
+
+      <section className="page-width about-story-grid about-story-grid--last">
+        <div>
+          <p className="section-label">Current chapter</p>
+          <h2 className="font-editorial">Still learning, very much building.</h2>
+        </div>
+        <div className="about-story-copy">
+          <p>
+            I&apos;m growing through internships, competitions, and project work. The Huawei ICT Competition helped me see cloud computing as more than theory, while my web and IoT projects keep me close to implementation details.
+          </p>
+          <p>
+            I&apos;m open to internships, junior developer opportunities, and collaborations where thoughtful technology can make someone&apos;s day a little easier.
+          </p>
+          <a href="/#contact" className="button about-page-cta">
+            Get in touch <ArrowUpRight size={16} />
+          </a>
+        </div>
+      </section>
+    </main>
+  );
+}
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const isAboutPage = window.location.pathname === '/about';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -346,17 +484,98 @@ export default function App() {
     };
   }, [selectedProject]);
 
+  useEffect(() => {
+    const finePointer = window.matchMedia('(pointer: fine)');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (!finePointer.matches || reduceMotion.matches) return;
+
+    let frame = 0;
+    let cursorX = window.innerWidth / 2;
+    let cursorY = window.innerHeight / 2;
+    const root = document.documentElement;
+    const magneticItems = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        '.contact-orb, .project-link, .button, .text-link, .icon-button, .scroll-top-button, .site-footer-contact a, .site-footer-socials a',
+      ),
+    );
+    const hoverItems = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        'a, button, .project-image, .other-work-row, .timeline-item, .about-focus-card',
+      ),
+    );
+
+    const updateCursor = () => {
+      root.style.setProperty('--cursor-x', `${cursorX}px`);
+      root.style.setProperty('--cursor-y', `${cursorY}px`);
+      frame = 0;
+    };
+
+    const onPointerMove = (event: PointerEvent) => {
+      cursorX = event.clientX;
+      cursorY = event.clientY;
+      if (!frame) frame = window.requestAnimationFrame(updateCursor);
+    };
+
+    const addHover = () => document.body.classList.add('is-hovering-interactive');
+    const removeHover = () => document.body.classList.remove('is-hovering-interactive');
+
+    const onMagnetMove = (event: PointerEvent) => {
+      const item = event.currentTarget as HTMLElement;
+      const rect = item.getBoundingClientRect();
+      const x = (event.clientX - rect.left - rect.width / 2) * 0.18;
+      const y = (event.clientY - rect.top - rect.height / 2) * 0.18;
+      item.style.setProperty('--magnet-x', `${x}px`);
+      item.style.setProperty('--magnet-y', `${y}px`);
+    };
+
+    const resetMagnet = (event: PointerEvent) => {
+      const item = event.currentTarget as HTMLElement;
+      item.style.setProperty('--magnet-x', '0px');
+      item.style.setProperty('--magnet-y', '0px');
+    };
+
+    window.addEventListener('pointermove', onPointerMove, { passive: true });
+    hoverItems.forEach((item) => {
+      item.addEventListener('pointerenter', addHover);
+      item.addEventListener('pointerleave', removeHover);
+    });
+    magneticItems.forEach((item) => {
+      item.style.setProperty('--magnet-x', '0px');
+      item.style.setProperty('--magnet-y', '0px');
+      item.addEventListener('pointermove', onMagnetMove);
+      item.addEventListener('pointerleave', resetMagnet);
+    });
+
+    return () => {
+      if (frame) window.cancelAnimationFrame(frame);
+      window.removeEventListener('pointermove', onPointerMove);
+      removeHover();
+      hoverItems.forEach((item) => {
+        item.removeEventListener('pointerenter', addHover);
+        item.removeEventListener('pointerleave', removeHover);
+      });
+      magneticItems.forEach((item) => {
+        item.removeEventListener('pointermove', onMagnetMove);
+        item.removeEventListener('pointerleave', resetMagnet);
+        item.style.removeProperty('--magnet-x');
+        item.style.removeProperty('--magnet-y');
+      });
+    };
+  }, [isAboutPage, selectedProject]);
+
   return (
     <div className="min-h-screen overflow-hidden text-ink">
+      <div className="interaction-cursor" aria-hidden="true" />
+
       <header className={`site-header ${scrolled ? 'site-header--scrolled' : ''} ${menuOpen ? 'site-header--menu-open' : ''}`}>
         <nav className="main-navigation page-width h-20">
-          <a href="#home" className="site-logo font-editorial text-3xl font-bold tracking-tight" aria-label="Home">
+          <a href={isAboutPage ? '/' : '#home'} className="site-logo font-editorial text-3xl font-bold tracking-tight" aria-label="Home">
             Somavatey<span className="text-rust">.</span>
           </a>
 
           <div className="desktop-navigation hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href} className="nav-link">
+              <a key={link.href} href={isAboutPage ? `/${link.href}` : link.href} className="nav-link">
                 {link.label}
               </a>
             ))}
@@ -381,7 +600,7 @@ export default function App() {
           aria-hidden={!menuOpen}
         >
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setMenuOpen(false)} tabIndex={menuOpen ? 0 : -1}>
+            <a key={link.href} href={isAboutPage ? `/${link.href}` : link.href} onClick={() => setMenuOpen(false)} tabIndex={menuOpen ? 0 : -1}>
               {link.label}
             </a>
           ))}
@@ -396,6 +615,9 @@ export default function App() {
         </div>
       </header>
 
+      {isAboutPage ? (
+        <AboutPage />
+      ) : (
       <main>
         <section id="home" className="page-width hero-grid min-h-screen items-center pt-24">
           <div className="hero-copy py-16 lg:py-24">
@@ -446,6 +668,9 @@ export default function App() {
                   </div>
                 ))}
               </div>
+              <a href="/about" className="text-link about-read-more reveal-on-scroll reveal-rise reveal-delay-4">
+                Read more about me <ArrowUpRight size={15} />
+              </a>
             </div>
           </div>
         </section>
@@ -685,34 +910,23 @@ export default function App() {
         </section>
 
         <section id="contact" className="contact-section">
-          <div className="page-width grid gap-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-end">
-            <div className="reveal-on-scroll reveal-from-left">
-              <p className="section-label">04 · Contact</p>
-              <h2 className="contact-title font-editorial mt-5 max-w-4xl font-semibold text-white">
-                Have a useful idea? I&apos;d love to hear it.
+          <div className="page-width contact-shell">
+            <div className="contact-heading reveal-on-scroll reveal-from-left">
+              <h2 className="contact-title font-editorial">
+                Have a useful idea?
               </h2>
             </div>
-            <div className="reveal-on-scroll reveal-from-right reveal-delay-1">
-              <p className="mb-8 leading-7 text-white/65">
-                Open to internships and thoughtful collaborations.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                {contacts.map(({ icon: Icon, label, href }, index) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target={href.startsWith('http') ? '_blank' : undefined}
-                    rel={href.startsWith('http') ? 'noreferrer' : undefined}
-                    className={`contact-link reveal-on-scroll reveal-rise reveal-delay-${index + 2}`}
-                  >
-                    <Icon size={17} /> {label}
-                  </a>
-                ))}
-              </div>
-            </div>
+            <a
+              href="mailto:somavateysorn@gmail.com"
+              className="contact-orb reveal-on-scroll reveal-from-right reveal-delay-1"
+            >
+              Tell me
+              <ArrowUpRight size={28} />
+            </a>
           </div>
         </section>
       </main>
+      )}
 
       {selectedProject && (
         <div
@@ -804,8 +1018,63 @@ export default function App() {
         </div>
       )}
 
-      <footer className="bg-ink px-5 py-7 text-center text-xs font-semibold uppercase tracking-[0.16em] text-white/45">
-        © {new Date().getFullYear()} Somavatey Sorn · Designed with focus
+      <a
+        href={isAboutPage ? '/#home' : '#home'}
+        className={`scroll-top-button ${scrolled ? 'scroll-top-button--visible' : ''}`}
+        aria-label="Back to hero section"
+      >
+        <ArrowUp size={18} />
+      </a>
+
+      <footer className="site-footer">
+        <div className="page-width site-footer-inner">
+          <div className="site-footer-left">
+            <div className="site-footer-contact" aria-label="Contact details">
+              <div className="site-footer-contact-card">
+                <a href={footerContactLinks[0].href}>
+                  {footerContactLinks[0].label}
+                </a>
+                <p>Main base</p>
+                <span>Phnom Penh, Cambodia</span>
+              </div>
+
+              <div className="site-footer-contact-card">
+                <a href={footerContactLinks[1].href}>
+                  {footerContactLinks[1].label}
+                </a>
+                <p>Currently</p>
+                <span>Open to collaborations</span>
+              </div>
+            </div>
+          </div>
+
+          <nav className="site-footer-nav" aria-label="Footer navigation">
+            {navLinks.map((link) => (
+              <a key={link.href} href={isAboutPage ? `/${link.href}` : link.href}>
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="site-footer-bottom">
+            <a href="/privacy">Privacy Policy</a>
+            <span>© {new Date().getFullYear()} Somavatey Sorn</span>
+          </div>
+
+          <div className="site-footer-socials" aria-label="Social links">
+            {contacts.map(({ icon: Icon, label, href }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith('http') ? '_blank' : undefined}
+                rel={href.startsWith('http') ? 'noreferrer' : undefined}
+                aria-label={label}
+              >
+                <Icon size={18} />
+              </a>
+            ))}
+          </div>
+        </div>
       </footer>
     </div>
   );
