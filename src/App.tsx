@@ -312,6 +312,11 @@ const aboutGallery = [
     caption: 'Jakarta, Indonesia',
   },
   {
+    src: '/assets/campus-selfie.webp',
+    alt: 'Somavatey on campus',
+    caption: 'Campus moment',
+  },
+  {
     src: '/assets/airport.webp',
     alt: 'Somavatey at the airport before a trip',
     caption: 'Travel day',
@@ -320,11 +325,6 @@ const aboutGallery = [
     src: '/assets/huawei-journey/photo_1_2026-06-29_10-42-17.webp',
     alt: 'Somavatey at ASEAN headquarters with ASEAN flags',
     caption: 'ASEAN Headquarters',
-  },
-  {
-    src: '/assets/campus-selfie.webp',
-    alt: 'Somavatey on campus',
-    caption: 'Campus moment',
   },
   {
     src: '/assets/IMG_5429.webp',
@@ -350,6 +350,11 @@ const aboutGallery = [
     src: '/assets/aupp.webp',
     alt: 'Somavatey at the American University of Phnom Penh',
     caption: 'AUPP campus',
+  },
+  {
+    src: '/assets/IMG_4102.webp',
+    alt: 'Somavatey with friends in a music room',
+    caption: 'Music room moment',
   },
   {
     src: '/assets/beach.webp',
