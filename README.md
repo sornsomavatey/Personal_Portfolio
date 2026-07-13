@@ -32,14 +32,14 @@ Put your real screenshots in `public/assets` and update the paths in `src/App.ts
 
 Recommended filenames:
 
-- `omr.png`
-- `trc-portal.png`
-- `aeroplant.png`
-- `samanea.png`
-- `invoxia.png`
-- `komi.png`
+- `omr.webp`
+- `trc-portal.webp`
+- `aeroplant.webp`
+- `samanea.webp`
+- `invoxia.webp`
+- `komi.webp`
 
-Then update each `image` value in `src/App.tsx` from `.svg` to `.png`.
+Use WebP assets for portfolio screenshots and gallery images.
 
 ## Contact info
 

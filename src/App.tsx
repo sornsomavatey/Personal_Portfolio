@@ -42,6 +42,7 @@ type Project = {
 
 const navLinks = [
   { label: 'About', href: '#about' },
+  { label: 'Gallery', href: '/about#gallery' },
   { label: 'Work', href: '#work' },
   { label: 'Journey', href: '#journey' },
   { label: 'Contact', href: '#contact' },
@@ -88,15 +89,15 @@ const projects: Project[] = [
     number: '01',
     title: 'AeroPlant',
     category: 'Startup idea · Mobile prototype',
-    image: '/assets/aeroplant/IMG_8585.PNG',
+    image: '/assets/aeroplant/IMG_8585.webp',
     screens: [
-      '/assets/aeroplant/IMG_8585.PNG',
-      '/assets/aeroplant/IMG_8586.PNG',
-      '/assets/aeroplant/IMG_8588.PNG',
+      '/assets/aeroplant/IMG_8585.webp',
+      '/assets/aeroplant/IMG_8586.webp',
+      '/assets/aeroplant/IMG_8588.webp',
     ],
     teamImages: [
-      '/assets/aeroplant/team.jpg',
-      '/assets/aeroplant/team1.jpg',
+      '/assets/aeroplant/team.webp',
+      '/assets/aeroplant/team1.webp',
     ],
     href: 'https://github.com/sornsomavatey/AeroPlant',
     linkLabel: 'View GitHub repository',
@@ -125,7 +126,7 @@ const projects: Project[] = [
     number: '02',
     title: 'One More Restaurant',
     category: 'Full-stack web development',
-    image: '/assets/omr.png',
+    image: '/assets/omr.webp',
     href: 'https://www.onemorerestaurant.com/',
     linkLabel: 'Visit live website',
     summary:
@@ -153,7 +154,7 @@ const projects: Project[] = [
     number: '03',
     title: 'Samanea Wellness Resort',
     category: 'Hospitality web development',
-    image: '/assets/samanea.png',
+    image: '/assets/samanea.webp',
     href: 'https://www.samanea-wellnessresort.com/',
     linkLabel: 'Visit live website',
     summary:
@@ -181,7 +182,7 @@ const projects: Project[] = [
     number: '04',
     title: 'Smart IoT Parking',
     category: 'Connected systems',
-    image: '/assets/iot-parking.png',
+    image: '/assets/iot-parking.webp',
     href: 'https://www.facebook.com/share/v/1BbHsQuoUj/',
     linkLabel: 'Watch project demo',
     summary:
@@ -209,7 +210,7 @@ const projects: Project[] = [
     number: '05',
     title: 'SnapBooth',
     category: 'Computer vision & IoT',
-    image: '/assets/snapbooth.png',
+    image: '/assets/snapbooth.webp',
     summary:
       'A gesture-controlled photo booth with instant photo delivery.',
     contribution:
@@ -294,7 +295,7 @@ const highlights = [
 const contacts = [
   { icon: Mail, label: 'Email', href: 'mailto:somavateysorn@gmail.com' },
   { icon: FaGithub, label: 'GitHub', href: 'https://github.com/sornsomavatey' },
-  { icon: FaLinkedin, label: 'LinkedIn', href: 'https://linkedin.com/' },
+  { icon: FaLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/somavatey-sorn' },
   { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/__jjein__/' },
   { icon: FaFacebookF, label: 'Facebook', href: 'https://www.facebook.com/Vatxyyy/' },
 ];
@@ -306,42 +307,52 @@ const footerContactLinks = [
 
 const aboutGallery = [
   {
-    src: '/assets/huawei-journey/photo_2_2026-06-29_10-42-17.jpg',
+    src: '/assets/huawei-journey/photo_2_2026-06-29_10-42-17.webp',
     alt: 'Somavatey at the ASEAN headquarters in Jakarta',
     caption: 'Jakarta, Indonesia',
   },
   {
-    src: '/assets/airport.png',
+    src: '/assets/airport.webp',
     alt: 'Somavatey at the airport before a trip',
     caption: 'Travel day',
   },
   {
-    src: '/assets/huawei-journey/photo_1_2026-06-29_10-42-17.jpg',
+    src: '/assets/huawei-journey/photo_1_2026-06-29_10-42-17.webp',
     alt: 'Somavatey at ASEAN headquarters with ASEAN flags',
     caption: 'ASEAN Headquarters',
   },
   {
-    src: '/assets/campus-selfie.png',
+    src: '/assets/campus-selfie.webp',
     alt: 'Somavatey on campus',
     caption: 'Campus moment',
   },
   {
-    src: '/assets/huawei-journey/photo_5_2026-06-29_10-42-17.jpg',
-    alt: 'Cambodian delegation at the Huawei ICT Competition APAC Regional Final',
-    caption: 'Huawei ICT Regional Final',
+    src: '/assets/IMG_5429.webp',
+    alt: 'Somavatey with friends at the AUPP Class of 2026 celebration',
+    caption: 'Class of 2026 celebration',
   },
   {
-    src: '/assets/aupp.png',
+    src: '/assets/IMG_3899.webp',
+    alt: 'Somavatey during a personal milestone moment',
+    caption: 'As a Khmer Traditional Dancer',
+  },
+  {
+    src: '/assets/IMG_6429.webp',
+    alt: 'Somavatey in Jakarta at night',
+    caption: 'Jakarta at night',
+  },
+  {
+    src: '/assets/IMG_5428.webp',
+    alt: 'Somavatey with a friend at the AUPP Class of 2026 celebration',
+    caption: 'AUPP Class of 2026',
+  },
+  {
+    src: '/assets/aupp.webp',
     alt: 'Somavatey at the American University of Phnom Penh',
     caption: 'AUPP campus',
   },
   {
-    src: '/assets/aeroplant/team1.jpg',
-    alt: 'AeroPlant team at Turing Hackathon Demo Day',
-    caption: 'Turing Hackathon Demo Day',
-  },
-  {
-    src: '/assets/beach.png',
+    src: '/assets/beach.webp',
     alt: 'Somavatey by the sea',
     caption: 'By the sea',
   },
@@ -355,12 +366,9 @@ function AboutPage() {
           <ArrowLeft size={15} /> Back to portfolio
         </a>
         <p className="section-label">About Somavatey</p>
-        <h1 className="about-page-title font-editorial">
-          I learn by building useful things across cloud, web and connected systems.
-        </h1>
       </section>
 
-      <section className="page-width about-gallery-section" aria-label="Photos from Somavatey's journey">
+      <section id="gallery" className="page-width about-gallery-section" aria-label="Photos from Somavatey's journey">
         <div className="about-gallery-heading">
           <p className="section-label">Gallery</p>
           <h2 className="font-editorial">Moments behind the work.</h2>
@@ -368,7 +376,7 @@ function AboutPage() {
         <div className="about-gallery">
           {aboutGallery.map((image, index) => (
             <figure
-              className={`about-photo ${index === 0 ? 'about-photo--feature' : ''}`}
+              className={`about-photo reveal-on-scroll reveal-rise reveal-delay-${Math.min((index % 5) + 1, 5)} ${index === 0 ? 'about-photo--feature' : ''}`}
               key={image.src}
             >
               <img src={image.src} alt={image.alt} loading={index === 0 ? 'eager' : 'lazy'} />
@@ -404,6 +412,7 @@ export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const isAboutPage = window.location.pathname === '/about';
+  const getNavigationHref = (href: string) => (href.startsWith('/') ? href : isAboutPage ? `/${href}` : href);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -443,12 +452,18 @@ export default function App() {
     const closeOnDesktop = () => {
       if (window.innerWidth >= 768) setMenuOpen(false);
     };
+    const closeOnOutsideClick = (event: PointerEvent) => {
+      const header = document.querySelector('.site-header');
+      if (header && !header.contains(event.target as Node)) setMenuOpen(false);
+    };
 
     window.addEventListener('keydown', closeMenu);
     window.addEventListener('resize', closeOnDesktop);
+    document.addEventListener('pointerdown', closeOnOutsideClick);
     return () => {
       window.removeEventListener('keydown', closeMenu);
       window.removeEventListener('resize', closeOnDesktop);
+      document.removeEventListener('pointerdown', closeOnOutsideClick);
     };
   }, [menuOpen]);
 
@@ -485,7 +500,7 @@ export default function App() {
     );
     const hoverItems = Array.from(
       document.querySelectorAll<HTMLElement>(
-        'a, button, .project-image, .other-work-row, .timeline-item, .about-focus-card',
+        'a, button, .project-image, .other-work-row, .timeline-item, .about-photo, .about-focus-card',
       ),
     );
 
@@ -560,11 +575,15 @@ export default function App() {
 
           <div className="desktop-navigation hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
-              <a key={link.href} href={isAboutPage ? `/${link.href}` : link.href} className="nav-link">
+              <a key={link.href} href={getNavigationHref(link.href)} className="nav-link">
                 {link.label}
               </a>
             ))}
           </div>
+
+          <a href="mailto:somavateysorn@gmail.com" className="desktop-nav-cta">
+            Let&apos;s talk <ArrowUpRight size={15} />
+          </a>
 
           <button
             type="button"
@@ -585,7 +604,7 @@ export default function App() {
           aria-hidden={!menuOpen}
         >
           {navLinks.map((link) => (
-            <a key={link.href} href={isAboutPage ? `/${link.href}` : link.href} onClick={() => setMenuOpen(false)} tabIndex={menuOpen ? 0 : -1}>
+            <a key={link.href} href={getNavigationHref(link.href)} onClick={() => setMenuOpen(false)} tabIndex={menuOpen ? 0 : -1}>
               {link.label}
             </a>
           ))}
@@ -627,7 +646,7 @@ export default function App() {
 
           <div className="hero-portrait-wrap reveal-on-scroll reveal-from-right reveal-delay-2">
             <div className="hero-portrait">
-              <img src="/assets/profile.jpg" alt="Somavatey Sorn" />
+              <img src="/assets/profile.webp" alt="Somavatey Sorn" />
             </div>
             <p className="portrait-note font-editorial">Curious by nature.<br />Practical by choice.</p>
           </div>
@@ -814,7 +833,7 @@ export default function App() {
               <div className="journey-gallery">
                 <figure className="journey-photo journey-photo--feature reveal-on-scroll reveal-from-left">
                   <img
-                    src="/assets/huawei-journey/regional-origin.png"
+                    src="/assets/huawei-journey/regional-origin.webp"
                     alt="Cambodia Cloud Track participants after taking the Huawei ICT Competition Regional Final exam"
                     loading="lazy"
                   />
@@ -823,7 +842,7 @@ export default function App() {
 
                 <figure className="journey-photo journey-photo--side reveal-on-scroll reveal-from-right reveal-delay-1">
                   <img
-                    src="/assets/huawei-journey/photo_2_2026-06-29_10-42-17.jpg"
+                    src="/assets/huawei-journey/photo_2_2026-06-29_10-42-17.webp"
                     alt="Somavatey at the ASEAN headquarters in Jakarta"
                     loading="lazy"
                   />
@@ -832,7 +851,7 @@ export default function App() {
 
                 <figure className="journey-photo journey-photo--third reveal-on-scroll reveal-rise reveal-delay-2">
                   <img
-                    src="/assets/huawei-journey/photo_5_2026-06-29_10-42-17.jpg"
+                    src="/assets/huawei-journey/photo_5_2026-06-29_10-42-17.webp"
                     alt="Cambodian delegation at the Huawei ICT Competition APAC Regional Final"
                     loading="lazy"
                   />
@@ -841,7 +860,7 @@ export default function App() {
 
                 <figure className="journey-photo journey-photo--third reveal-on-scroll reveal-rise reveal-delay-3">
                   <img
-                    src="/assets/huawei-journey/photo_4_2026-06-29_10-42-17.jpg"
+                    src="/assets/huawei-journey/photo_4_2026-06-29_10-42-17.webp"
                     alt="Cambodia Cloud Track team at the Huawei ICT Competition"
                     loading="lazy"
                   />
@@ -850,7 +869,7 @@ export default function App() {
 
                 <figure className="journey-photo journey-photo--third reveal-on-scroll reveal-rise reveal-delay-4">
                   <img
-                    src="/assets/huawei-journey/photo_6_2026-06-29_10-42-17.jpg"
+                    src="/assets/huawei-journey/photo_6_2026-06-29_10-42-17.webp"
                     alt="Cloud Track team and mentor at the regional final"
                     loading="lazy"
                   />
@@ -1035,7 +1054,7 @@ export default function App() {
 
           <nav className="site-footer-nav" aria-label="Footer navigation">
             {navLinks.map((link) => (
-              <a key={link.href} href={isAboutPage ? `/${link.href}` : link.href}>
+              <a key={link.href} href={getNavigationHref(link.href)}>
                 {link.label}
               </a>
             ))}
