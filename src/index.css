@@ -251,10 +251,17 @@ img { display: block; max-width: 100%; }
   .section { padding-block: 4.25rem; }
   .section-rule { margin-bottom: 2.75rem; }
   .section-title { font-size: clamp(2.45rem, 12vw, 3.45rem); }
+  .site-header {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, .96);
+    border-color: rgba(48, 55, 43, .12);
+    backdrop-filter: blur(16px);
+  }
   .site-header nav { height: 4.5rem; }
   .site-header nav > a:first-child { font-size: 1.65rem; }
   .mobile-menu { padding-inline: 1.25rem; }
-  .hero-grid { grid-template-columns: minmax(0, 1fr); min-height: auto; padding-top: 6.5rem; padding-bottom: 5rem; gap: 0; text-align: center; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); min-height: auto; padding-top: 2.5rem; padding-bottom: 5rem; gap: 0; text-align: center; }
   .hero-copy { display: contents; }
   .hero-title { order: 1; margin: 0 auto; font-size: clamp(2.7rem, 14.5vw, 4rem); line-height: .86; letter-spacing: -.04em; }
   .eyebrow { order: 2; align-items: center; justify-content: center; margin-top: 1.4rem; font-size: .62rem; line-height: 1.7; }
