@@ -60,8 +60,26 @@ const strengths: { icon: IconComponent; title: string; text: string }[] = [
   },
   {
     icon: Palette,
-    title: 'Human-centred thinking',
-    text: 'Clear interfaces shaped around real people and needs.',
+    title: 'Creative problem solving',
+    text: 'Turning loose ideas into focused interfaces and working prototypes.',
+  },
+];
+
+const aboutFocusCards: { icon: IconComponent; title: string; text: string }[] = [
+  {
+    icon: GraduationCap,
+    title: 'Learning in public',
+    text: 'Using class projects, prototypes and feedback to keep improving the way I build.',
+  },
+  {
+    icon: Trophy,
+    title: 'Competition experience',
+    text: 'Turning pressure into clearer demos, sharper teamwork and better technical decisions.',
+  },
+  {
+    icon: BriefcaseBusiness,
+    title: 'Collaborative by default',
+    text: 'I like projects where clear communication and steady ownership help the work move forward.',
   },
 ];
 
@@ -288,24 +306,9 @@ const footerContactLinks = [
 
 const aboutGallery = [
   {
-    src: '/assets/profile.jpg',
-    alt: 'Somavatey Sorn portrait',
-    caption: 'Phnom Penh, Cambodia',
-  },
-  {
     src: '/assets/huawei-journey/photo_2_2026-06-29_10-42-17.jpg',
     alt: 'Somavatey at the ASEAN headquarters in Jakarta',
     caption: 'Jakarta, Indonesia',
-  },
-  {
-    src: '/assets/huawei-journey/photo_1_2026-06-29_10-42-17.jpg',
-    alt: 'Somavatey at ASEAN headquarters with ASEAN flags',
-    caption: 'ASEAN Headquarters',
-  },
-  {
-    src: '/assets/huawei-journey/photo_5_2026-06-29_10-42-17.jpg',
-    alt: 'Cambodian delegation at the Huawei ICT Competition APAC Regional Final',
-    caption: 'Huawei ICT Regional Final',
   },
   {
     src: '/assets/airport.png',
@@ -313,9 +316,19 @@ const aboutGallery = [
     caption: 'Travel day',
   },
   {
+    src: '/assets/huawei-journey/photo_1_2026-06-29_10-42-17.jpg',
+    alt: 'Somavatey at ASEAN headquarters with ASEAN flags',
+    caption: 'ASEAN Headquarters',
+  },
+  {
     src: '/assets/campus-selfie.png',
     alt: 'Somavatey on campus',
     caption: 'Campus moment',
+  },
+  {
+    src: '/assets/huawei-journey/photo_5_2026-06-29_10-42-17.jpg',
+    alt: 'Cambodian delegation at the Huawei ICT Competition APAC Regional Final',
+    caption: 'Huawei ICT Regional Final',
   },
   {
     src: '/assets/aupp.png',
@@ -323,14 +336,14 @@ const aboutGallery = [
     caption: 'AUPP campus',
   },
   {
-    src: '/assets/beach.png',
-    alt: 'Somavatey by the sea',
-    caption: 'By the sea',
-  },
-  {
     src: '/assets/aeroplant/team1.jpg',
     alt: 'AeroPlant team at Turing Hackathon Demo Day',
     caption: 'Turing Hackathon Demo Day',
+  },
+  {
+    src: '/assets/beach.png',
+    alt: 'Somavatey by the sea',
+    caption: 'By the sea',
   },
 ];
 
@@ -345,9 +358,6 @@ function AboutPage() {
         <h1 className="about-page-title font-editorial">
           I learn by building useful things across cloud, web and connected systems.
         </h1>
-        <p className="about-page-lead">
-          I&apos;m a Digital Infrastructure student at the American University of Phnom Penh. My work sits between technical systems and human experience: websites that feel clear, IoT projects that solve practical problems, and cloud learning that keeps me curious.
-        </p>
       </section>
 
       <section className="page-width about-gallery-section" aria-label="Photos from Somavatey's journey">
@@ -370,21 +380,13 @@ function AboutPage() {
 
       <section className="page-width about-story-grid">
         <div>
-          <p className="section-label">How I work</p>
-          <h2 className="font-editorial">Practical first, polished second.</h2>
-        </div>
-        <div className="about-story-copy">
-          <p>
-            I like projects where an idea has to become something people can actually use. That might mean turning Figma designs into responsive pages, connecting ESP32 hardware to useful alerts, or shaping a product flow before writing code.
-          </p>
-          <p>
-            My strongest motivation is clarity: making technology easier to understand, easier to navigate, and more connected to real needs.
-          </p>
+          <p className="section-label">Beyond the basics</p>
+          <h2 className="font-editorial">What shapes my work now.</h2>
         </div>
       </section>
 
       <section className="page-width about-focus-grid">
-        {strengths.map(({ icon: Icon, title, text }) => (
+        {aboutFocusCards.map(({ icon: Icon, title, text }) => (
           <article key={title} className="about-focus-card">
             <Icon size={22} className="text-rust" />
             <h3>{title}</h3>
@@ -393,23 +395,6 @@ function AboutPage() {
         ))}
       </section>
 
-      <section className="page-width about-story-grid about-story-grid--last">
-        <div>
-          <p className="section-label">Current chapter</p>
-          <h2 className="font-editorial">Still learning, very much building.</h2>
-        </div>
-        <div className="about-story-copy">
-          <p>
-            I&apos;m growing through internships, competitions, and project work. The Huawei ICT Competition helped me see cloud computing as more than theory, while my web and IoT projects keep me close to implementation details.
-          </p>
-          <p>
-            I&apos;m open to internships, junior developer opportunities, and collaborations where thoughtful technology can make someone&apos;s day a little easier.
-          </p>
-          <a href="/#contact" className="button about-page-cta">
-            Get in touch <ArrowUpRight size={16} />
-          </a>
-        </div>
-      </section>
     </main>
   );
 }
