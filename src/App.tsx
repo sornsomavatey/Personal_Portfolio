@@ -15,7 +15,7 @@ import {
   Trophy,
   X,
 } from 'lucide-react';
-import { FaFacebookF, FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { FaFacebookF, FaGithub, FaInstagram, FaLinkedin, FaYoutube } from 'react-icons/fa';
 
 type IconComponent = ElementType<{ size?: number | string; className?: string }>;
 
@@ -40,10 +40,22 @@ type Project = {
   };
 };
 
+type Video = {
+  title: string;
+  description: string;
+  href: string;
+  platform: 'YouTube' | 'YouTube Short' | 'Facebook';
+  id?: string;
+  duration?: string;
+  poster?: string;
+  meta?: string;
+};
+
 const navLinks = [
   { label: 'About', href: '#about' },
   { label: 'Gallery', href: '/about#gallery' },
   { label: 'Work', href: '#work' },
+  { label: 'Videos', href: '#videos' },
   { label: 'Journey', href: '#journey' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -239,6 +251,41 @@ const otherWork = [
   ['Komi', 'Korean-style online shop in Cambodia', 'E-commerce UI · Responsive frontend'],
 ];
 
+const videos: Video[] = [
+  {
+    title: 'What is Cloud Computing?',
+    description: 'A friendly introduction to the ideas behind cloud computing and why they matter.',
+    id: 'KO9j0EzS_bw',
+    href: 'https://youtu.be/KO9j0EzS_bw?si=jW8rk4EeG8m75Nkm',
+    duration: '2:52',
+    platform: 'YouTube',
+  },
+  {
+    title: 'Cloud Native vs. Cloud Computing',
+    description: 'Exploring how cloud-native development relates to the wider world of cloud computing.',
+    id: 'Kh-PmYLQJVg',
+    href: 'https://youtu.be/Kh-PmYLQJVg?si=FbCQDa1AX8z_y2oo',
+    duration: '2:52',
+    platform: 'YouTube',
+  },
+  {
+    title: 'My Sister of Code Story',
+    description: 'My honest reflection on building practical digital skills, confidence, teamwork, and problem-solving through the Website Development & UX/UI Design course.',
+    id: 'Vcn5u47XB2k',
+    href: 'https://youtube.com/shorts/Vcn5u47XB2k?si=Kla2NDCTeyxsS0Ak',
+    platform: 'YouTube Short',
+    meta: 'Sister of Code · Student story',
+  },
+  {
+    title: 'Smart Parking Car',
+    description: 'An ICT 360 mini project built with MicroPython, ESP32 sensors, Telegram Bot, Blynk, and a web server.',
+    href: 'https://www.facebook.com/share/v/1G7FDhomZa/',
+    platform: 'Facebook',
+    poster: '/assets/iot-parking.webp',
+    meta: 'Team project · ICT 360',
+  },
+];
+
 const experiences = [
   {
     period: 'May—Aug 2026',
@@ -298,6 +345,7 @@ const contacts = [
   { icon: FaLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/somavatey-sorn' },
   { icon: FaInstagram, label: 'Instagram', href: 'https://www.instagram.com/__jjein__/' },
   { icon: FaFacebookF, label: 'Facebook', href: 'https://www.facebook.com/Vatxyyy/' },
+  { icon: FaYoutube, label: 'YouTube', href: 'https://youtube.com/@jeinjein1318' },
 ];
 
 const footerContactLinks = [
@@ -782,6 +830,61 @@ export default function App() {
                 <p>{tools}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section id="videos" className="section video-section">
+          <div className="page-width">
+            <div className="video-heading">
+              <div className="reveal-on-scroll reveal-from-left">
+                <p className="section-label">03 · Videos</p>
+                <h2 className="section-title">Ideas, explained simply.</h2>
+              </div>
+              <div className="video-intro reveal-on-scroll reveal-from-right reveal-delay-1">
+                <p>
+                  I also make videos about cloud technology—turning technical ideas into short,
+                  approachable stories.
+                </p>
+                <a href="https://youtube.com/@jeinjein1318" target="_blank" rel="noreferrer" className="text-link">
+                  Visit my channel <ArrowUpRight size={15} />
+                </a>
+              </div>
+            </div>
+
+            <div className="video-grid">
+              {videos.map((video, index) => (
+                <a
+                  key={video.href}
+                  href={video.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`video-card reveal-on-scroll reveal-rise reveal-delay-${index + 1}`}
+                  aria-label={`Watch ${video.title} on ${video.platform}`}
+                >
+                  <div className={`video-thumbnail ${video.platform === 'Facebook' ? 'video-thumbnail--facebook' : ''}`}>
+                    <img
+                      src={video.poster ?? `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`}
+                      alt=""
+                      loading="lazy"
+                    />
+                    <span className="video-play" aria-hidden="true">
+                      {video.platform === 'Facebook' ? <FaFacebookF size={23} /> : <FaYoutube size={29} />}
+                    </span>
+                    {video.duration && <span className="video-duration">{video.duration}</span>}
+                  </div>
+                  <div className="video-card-copy">
+                    <p className="section-label">
+                      {video.meta ?? (video.platform === 'YouTube'
+                        ? 'Cloud explained'
+                        : 'Short-form video')}
+                    </p>
+                    <h3 className="font-editorial">{video.title}</h3>
+                    <p>{video.description}</p>
+                    <span className="video-watch">Watch on {video.platform} <ArrowUpRight size={15} /></span>
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
 

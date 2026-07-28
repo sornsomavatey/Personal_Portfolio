@@ -226,6 +226,31 @@ img { display: block; max-width: 100%; }
 .other-work-row p { font-size: .8rem; line-height: 1.6; color: var(--muted); }
 .other-work-row p:last-child { text-align: right; }
 
+.video-section { background: var(--ink); color: #fff; }
+.video-section .section-label { color: var(--sage); }
+.video-heading { display: grid; grid-template-columns: 1.15fr .85fr; align-items: end; gap: clamp(2rem, 8vw, 8rem); }
+.video-heading .section-title { max-width: 38rem; color: #fff; }
+.video-intro { max-width: 30rem; justify-self: end; }
+.video-intro > p { font-size: .92rem; line-height: 1.8; color: rgba(255,255,255,.66); }
+.video-intro .text-link { margin-top: 1.25rem; border-color: rgba(255,255,255,.35); color: #fff; }
+.video-intro .text-link:hover { border-color: var(--sage); color: var(--sage); }
+.video-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2.5vw, 2rem); margin-top: clamp(3rem, 6vw, 5rem); }
+.video-card { min-width: 0; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.035); transition: border-color .3s, background .3s, transform .45s cubic-bezier(.22,1,.36,1); }
+.video-card:hover { border-color: rgba(203,213,173,.55); background: rgba(255,255,255,.07); transform: translateY(-.4rem); }
+.video-thumbnail { position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #1d211a; }
+.video-thumbnail::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(0,0,0,.48)); pointer-events: none; }
+.video-thumbnail img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.82) contrast(.96); transition: filter .35s, transform .7s cubic-bezier(.22,1,.36,1); }
+.video-thumbnail--facebook::before { content: "AUPP Robotics & IoT Lab"; position: absolute; top: .75rem; left: .75rem; z-index: 2; padding: .38rem .52rem; background: rgba(24,119,242,.92); color: #fff; font-size: .55rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.video-thumbnail--facebook .video-play { color: #1877f2; }
+.video-card:hover .video-thumbnail img { filter: saturate(1) contrast(1); transform: scale(1.035); }
+.video-play { position: absolute; inset: 50% auto auto 50%; z-index: 1; display: grid; place-items: center; width: 4.5rem; height: 4.5rem; border-radius: 50%; background: rgba(255,255,255,.94); color: #e1261c; transform: translate(-50%, -50%); transition: transform .35s cubic-bezier(.22,1,.36,1), background .25s; }
+.video-card:hover .video-play { background: #fff; transform: translate(-50%, -50%) scale(1.08); }
+.video-duration { position: absolute; right: .75rem; bottom: .75rem; z-index: 1; padding: .3rem .45rem; background: rgba(0,0,0,.72); color: #fff; font-size: .62rem; font-weight: 700; letter-spacing: .05em; }
+.video-card-copy { padding: clamp(1.25rem, 3vw, 2rem); }
+.video-card-copy h3 { margin-top: .7rem; color: #fff; font-size: clamp(2rem, 4vw, 3.25rem); font-weight: 600; line-height: .95; letter-spacing: -.025em; }
+.video-card-copy > p:not(.section-label) { max-width: 31rem; margin-top: 1rem; color: rgba(255,255,255,.6); font-size: .82rem; line-height: 1.75; }
+.video-watch { display: inline-flex; align-items: center; gap: .45rem; margin-top: 1.35rem; color: var(--sage); font-size: .72rem; font-weight: 700; }
+
 .journey-heading { display: flex; align-items: end; justify-content: space-between; gap: 3rem; margin-bottom: 2.75rem; }
 .timeline { position: relative; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1.5rem; }
 .timeline::before { content: ""; position: absolute; top: 1.1rem; left: 1.1rem; right: 1.1rem; height: 1px; background: rgba(48,55,43,.22); }
@@ -369,6 +394,9 @@ img { display: block; max-width: 100%; }
   .hero-portrait-wrap { justify-self: start; width: min(85%, 25rem); }
   .project-row { grid-template-columns: 1fr; gap: 2.5rem; }
   .project-row--reverse .project-image { order: initial; }
+  .video-heading { grid-template-columns: 1fr; align-items: start; }
+  .video-intro { justify-self: start; }
+  .video-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .project-copy { max-width: 38rem; }
   .case-modal { max-height: calc(100svh - 2.5rem); }
   .case-modal-media > img { height: clamp(13rem, 46vw, 18rem); }
@@ -448,6 +476,8 @@ img { display: block; max-width: 100%; }
   .about-focus-card { padding: 1.2rem; }
   .other-work-row { grid-template-columns: 1fr; gap: .2rem; }
   .other-work-row p:last-child { text-align: left; }
+  .video-grid { grid-template-columns: 1fr; }
+  .video-play { width: 3.75rem; height: 3.75rem; }
   .project-team figcaption { align-items: flex-start; flex-direction: column; gap: .35rem; }
   .project-row { gap: 2rem; }
   .project-copy h3 { font-size: clamp(2.25rem, 11.5vw, 3.25rem); overflow-wrap: anywhere; }
